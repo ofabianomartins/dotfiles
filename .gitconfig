@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Fabiano Martins
+  email = fabiano.paula.martins@gmail.com
+[push]
+  default = matching
+[alias]
+  ca = commit --amend --no-edit
+  cb = checkout -b
+  ci = commit -m 
+  co = checkout
+  cm = checkout master
+  fo = fetch origin
+  incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
+  lg = log --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
+  outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h  -  %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
+  pf = push -f
+  rollback = reset --soft HEAD~1
+  sf = show --name-only
+  st = status --short --branch
+  unstage = reset --
+  undo = checkout --
+[merge]
+  ff = false
