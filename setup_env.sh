@@ -1,7 +1,7 @@
 
 # Adding softwares
 
-sudo apt-get install vim tmux zsh -y
+sudo apt-get install vim tmux zsh curl -y
 
 
 # Setup Vim Plugins
