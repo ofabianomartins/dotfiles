@@ -20,4 +20,6 @@ cd ~/.vim
 
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
 
+# Adding config alias
 
+echo "alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'" >> ~/.zshrc
