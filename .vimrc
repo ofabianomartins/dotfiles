@@ -71,3 +71,6 @@ noremap <C-b> :call ToggleNetrw()<CR>
 map <C-Tab> gt
 map <C-S-Tab> gT
 
+" Adding Vim Plugins
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
