@@ -53,8 +53,14 @@ sudo apt install \
 
 # Install Asdf plugins 
 
-#Ruby
-asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+#grails
+asdf plugin-add grails https://github.com/weibemoura/asdf-grails.git
+
+#groovy 
+asdf plugin-add groovy https://github.com/weibemoura/asdf-groovy.git
+
+#Java 
+asdf plugin-add java https://github.com/halcyon/asdf-java.git
 
 #NodeJs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -62,5 +68,9 @@ bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 #Python
 asdf plugin-add python
+
+#Ruby
+asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+
 
 
