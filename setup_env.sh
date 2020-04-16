@@ -23,3 +23,13 @@ git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
 # Adding config alias
 
 echo "alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'" >> ~/.zshrc
+
+# Generate SSH keys 
+
+# Personal SSH keys
+
+ssh-keygen -b 4096 -f "$HOME/.ssh/$(hostname)-key" -C "fabiano.paula.martins@gmail.com"
+
+# JOB SSH keys 
+
+ssh-keygen -b 4096 -f "$HOME/.ssh/$(hostname)-job-key" -C "fabiano@investtools.com.br"
