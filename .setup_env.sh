@@ -1,6 +1,9 @@
 # Adding softwares
 
-sudo apt-get install vim tmux zsh curl build-essential gitk -y
+sudo apt-get install -y \
+  vim tmux zsh curl build-essential gitk libreadline-dev zlib1g-dev pwgen imagemagick libffi-dev \
+  libxml2-dev libssl-dev libcurl4-gnutls-dev libmysqlclient-dev automake autoconf libreadline-dev \
+  libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip
 
 # Set Zsh as default 
 
@@ -45,11 +48,6 @@ echo -e "\nfpath=(${ASDF_DIR}/completions $fpath)" >> ~/.zshrc
 # initialise completions with ZSH's compinit
 echo -e "\nautoload -Uz compinit && compinit" >> ~/.zshrc
 
-sudo apt install \
-  automake autoconf libreadline-dev \
-  libncurses-dev libssl-dev libyaml-dev \
-  libxslt-dev libffi-dev libtool unixodbc-dev \
-  unzip
 
 # Install Asdf plugins 
 
