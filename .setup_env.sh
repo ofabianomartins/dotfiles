@@ -22,6 +22,8 @@ git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
 # Adding config alias
 
 echo "alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'" >> ~/.zshrc
+# alias to push 
+echo "alias config-update='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano push origin'" >> ~/.zshrc
 
 # Generate SSH keys 
 
