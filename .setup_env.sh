@@ -1,6 +1,6 @@
 # Adding softwares
 
-sudo apt-get install vim tmux zsh curl build-essential -y
+sudo apt-get install vim tmux zsh curl build-essential gitk -y
 
 # Set Zsh as default 
 
