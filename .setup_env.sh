@@ -3,7 +3,7 @@
 sudo apt-get install -y \
   vim tmux zsh curl build-essential gitk libreadline-dev zlib1g-dev pwgen imagemagick libffi-dev \
   libxml2-dev libssl-dev libcurl4-gnutls-dev libmysqlclient-dev automake autoconf libreadline-dev \
-  libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip
+  libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip libevent 
 
 # Set Zsh as default 
 
