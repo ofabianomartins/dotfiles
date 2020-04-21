@@ -1,4 +1,6 @@
 # This is Git's per-user configuration file.
+[core]
+  editor = vim
 [user]
   name = Fabiano Martins
   email = fabiano.paula.martins@gmail.com
