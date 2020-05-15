@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": true,
+    "window.menuBarVisibility": "default",
+    "workbench.sideBar.location": "left",
+    "window.zoomLevel": 0,
+    "editor.rulers": [
+        80,100,120
+    ]
+}
