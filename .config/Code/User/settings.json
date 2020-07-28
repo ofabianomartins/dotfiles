@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorTheme": "Sublime Monokai",
     "workbench.iconTheme": "material-icon-theme",
     "editor.renderWhitespace": "none",
     "breadcrumbs.enabled": false,
@@ -10,5 +10,8 @@
     "window.zoomLevel": 0,
     "editor.rulers": [
         80,100,120
-    ]
+    ],
+    "editor.tabSize": 2,
+    "vscodemem.frequency": 1500,
+    "workbench.statusBar.visible": true
 }
