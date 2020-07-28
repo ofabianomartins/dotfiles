@@ -7,6 +7,7 @@
 [push]
   default = matching
 [alias]
+  ba = branch -a
   ca = commit --amend --no-edit
   cb = checkout -b
   ci = commit -m 
@@ -17,6 +18,8 @@
   lg = log --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
   outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h  -  %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
   po = push origin
+  pom = push origin master
+  pomf = pull origin master --ff
   rollback = reset --soft HEAD~1
   sf = show --name-only
   st = status --short --branch
