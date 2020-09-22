@@ -1,4 +1,6 @@
 " General
+syntax on 
+
 set number     " Show line numbers  
 set linebreak  " Break lines at word (requires wrap lines)
 set showbreak=+++ " Wrap-broken line prefix
@@ -16,6 +18,22 @@ set expandtab " Tab to spaces
 set shiftwidth=2 "Number of auto-indent spaces
 set softtabstop=2 "Number of spaces per tab
 
+filetype off
+filetype indent on
+
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+
+call vundle#end()
+filetype plugin indent on 
+
 " Advanced 
 
 set ruler "Show row and column ruler information
@@ -27,8 +45,6 @@ set backspace=indent,eol,start
 
 set clipboard=unnamed
 set colorcolumn=101
-
-syntax enable 
 
 set background=dark
 

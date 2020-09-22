@@ -5,7 +5,7 @@
 [core]
   editor = vim
 [push]
-  default = matching
+  default = current
 [alias]
   ba = branch -a
   ca = commit --amend --no-edit
@@ -13,13 +13,13 @@
   ci = commit -m 
   co = checkout
   cm = checkout master
-  fo = fetch origin
+  fop = fetch origin --prune
   incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
   lg = log --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
   outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h  -  %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
-  po = push origin
-  pom = push origin master
   pomf = pull origin master --ff
+  p = push
+  rh = reset --hard
   rollback = reset --soft HEAD~1
   sf = show --name-only
   st = status --short --branch

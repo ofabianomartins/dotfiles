@@ -4,14 +4,17 @@
     "editor.renderWhitespace": "none",
     "breadcrumbs.enabled": false,
     "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "window.menuBarVisibility": "toggle",
     "workbench.sideBar.location": "left",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "editor.rulers": [
         80,100,120
     ],
     "editor.tabSize": 2,
     "vscodemem.frequency": 1500,
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "slackVSCode.token": "A01A6R34RLG",
+    "slackVSCode.fileWithFullPath": true,
+    "groovyLint.lint.trigger": "onSave"
 }
