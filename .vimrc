@@ -23,15 +23,27 @@ filetype indent on
 
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+autocmd BufNewFile,BufRead *.coffee setlocal filetype=coffee
+
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'gmarik/Vundle.vim'
+
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
+Plugin 'slim-template/vim-slim.git'
+
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'eslint/eslint'
 
 call vundle#end()
+syntax enable
 filetype plugin indent on 
 
 " Advanced 
