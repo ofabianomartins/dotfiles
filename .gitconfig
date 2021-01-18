@@ -16,6 +16,7 @@
   fop = fetch origin --prune
   incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
   lg = log --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
+  reflg = reflog --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
   outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h  -  %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
   pomf = pull origin master --ff
   p = push
