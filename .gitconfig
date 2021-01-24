@@ -7,6 +7,7 @@
 [push]
   default = current
 [alias]
+  a  = add
   ba = branch -a
   ca = commit --amend --no-edit
   cb = checkout -b

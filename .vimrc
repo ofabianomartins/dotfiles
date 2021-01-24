@@ -56,11 +56,12 @@ set undolevels=100 " Number of undos
 set backspace=indent,eol,start
 
 set clipboard=unnamed
-set colorcolumn=101
+set colorcolumn=101,121
 
 set background=dark
 
 set nobackup
+set nohlsearch
 set noswapfile
 set nowritebackup
 set mouse=a
