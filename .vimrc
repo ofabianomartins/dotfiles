@@ -17,6 +17,7 @@ set smarttab " Enable smart-tabs
 set expandtab " Tab to spaces
 set shiftwidth=2 "Number of auto-indent spaces
 set softtabstop=2 "Number of spaces per tab
+set tabstop=2
 
 filetype off
 filetype indent on
