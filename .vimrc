@@ -1,4 +1,4 @@
-" General
+"  General
 syntax on 
 
 set number     " Show line numbers  
@@ -33,6 +33,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+
+Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -99,6 +101,7 @@ map <C-t> :tabnew <Enter>
 noremap <C-b> :call ToggleNetrw()<CR>
 map <C-Tab> gt
 map <C-S-Tab> gT
+nnoremap <NL> i<CR><ESC>
 
 " Adding Vim Plugins
 
