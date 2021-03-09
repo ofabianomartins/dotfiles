@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=10
+export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -100,6 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'
+
+source .security_commands
 
 if [[ -f "$HOME/.asdf/asdf.sh" ]] then
   source "$HOME/.asdf/asdf.sh"
