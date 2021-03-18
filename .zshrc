@@ -101,7 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'
 
-source .security_commands
+alias gti='git'
+
+[[ -f "$HOME/.security_commands" ]] && source ~/.security_commands
 
 if [[ -f "$HOME/.asdf/asdf.sh" ]] then
   source "$HOME/.asdf/asdf.sh"
