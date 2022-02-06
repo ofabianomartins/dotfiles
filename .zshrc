@@ -1,4 +1,4 @@
-[[ $TERM != "screen" ]] && exec tmux
+# [[ $TERM != "screen" ]] && exec tmux
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -10,7 +10,7 @@ export ZSH="/home/fabiano/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="aussiegeek"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=30
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -101,19 +101,20 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'
 
+alias search='grep -iRn'
+
 alias gti='git'
+alias itg='git'
+alias tig='git'
+alias igt='git'
+alias tgi='git'
 
 [[ -f "$HOME/.security_commands" ]] && source ~/.security_commands
-
-if [[ -f "$HOME/.asdf/asdf.sh" ]] then
-  source "$HOME/.asdf/asdf.sh"
-  source "$HOME/.asdf/completions/asdf.bash"
-fi
 
 fpath=(/completions /home/fabiano/.oh-my-zsh/plugins/git /home/fabiano/.oh-my-zsh/plugins/ruby /home/fabiano/.oh-my-zsh/functions /home/fabiano/.oh-my-zsh/completions /usr/local/share/zsh/site-functions /usr/share/zsh/vendor-functions /usr/share/zsh/vendor-completions /usr/share/zsh/functions/Calendar /usr/share/zsh/functions/Chpwd /usr/share/zsh/functions/Completion /usr/share/zsh/functions/Completion/AIX /usr/share/zsh/functions/Completion/BSD /usr/share/zsh/functions/Completion/Base /usr/share/zsh/functions/Completion/Cygwin /usr/share/zsh/functions/Completion/Darwin /usr/share/zsh/functions/Completion/Debian /usr/share/zsh/functions/Completion/Linux /usr/share/zsh/functions/Completion/Mandriva /usr/share/zsh/functions/Completion/Redhat /usr/share/zsh/functions/Completion/Solaris /usr/share/zsh/functions/Completion/Unix /usr/share/zsh/functions/Completion/X /usr/share/zsh/functions/Completion/Zsh /usr/share/zsh/functions/Completion/openSUSE /usr/share/zsh/functions/Exceptions /usr/share/zsh/functions/MIME /usr/share/zsh/functions/Math /usr/share/zsh/functions/Misc /usr/share/zsh/functions/Newuser /usr/share/zsh/functions/Prompts /usr/share/zsh/functions/TCP /usr/share/zsh/functions/VCS_Info /usr/share/zsh/functions/VCS_Info/Backends /usr/share/zsh/functions/Zftp /usr/share/zsh/functions/Zle)
 
 autoload -Uz compinit && compinit
-alias mariadb-up='docker run -it --rm -e MARIADB_ROOT_PASSWORD=root mariadb/server:10.4'
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/fabiano/.sdkman"
@@ -122,24 +123,24 @@ alias mariadb-up='docker run -it --rm -e MARIADB_ROOT_PASSWORD=root mariadb/serv
 export PATH=$PATH:/usr/java/jre1.8.0_251/bin/
 export PATH=$PATH:$HOME/.local/idea-IC-202.6397.94/bin/
 
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+alias vim='nvim -O'
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/fabiano/google-cloud-sdk/path.zsh.inc' ]; then . '/home/fabiano/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/fabiano/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/fabiano/google-cloud-sdk/completion.zsh.inc'; fi
 
-source /home/fabiano/.rvm/scripts/rvm
-
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
-alias kubectl='microk8s kubectl'
+#alias kubectl='microk8s kubectl'
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+################################ DOCKER ALIAS COMMANDS START ######################
+alias mariadb-up='docker run -it --rm -e MARIADB_ROOT_PASSWORD=root mariadb/server:10.4'
 
 # Load pyenv automatically by appending
 # the following to ~/.zshrc:
 
-eval "$(pyenv init -)"
 
