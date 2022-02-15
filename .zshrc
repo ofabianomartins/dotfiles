@@ -140,7 +140,46 @@ alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 ################################ DOCKER ALIAS COMMANDS START ######################
 alias mariadb-up='docker run -it --rm -e MARIADB_ROOT_PASSWORD=root mariadb/server:10.4'
 
-# Load pyenv automatically by appending
-# the following to ~/.zshrc:
+alias jupyter='docker run -t --name jupyter --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "${PWD}":/home/jovyan/work jupyter/datascience-notebook:33add21fab64'
+alias jupyter_console='docker exec -it jupyter bash'
+alias backup-ivt='docker run -t --rm --network performit --env-file "$HOME/investtools-workspace/backup-investtools/.env" --volume "$HOME/investtools-workspace/backup-investtools:/app"  backup-investtools_backup ./backup-ivt.sh'
+
+alias swagger-ui='docker run --name swagger-ui -d -p 8444:8080 -e SWAGGER_JSON=/foo/swagger.json -v $PWD:/foo swaggerapi/swagger-ui' 
+alias swagger-ui-down='docker rm -f swagger-ui' 
+
+alias docker-arco='docker-compose -f $HOME/investtools-workspace/arco/arco-docker/docker-compose.yml'
+alias docker-performit='docker-compose -f $HOME/investtools-workspace/performit/performit-docker/docker-compose.yml'
+
+alias docker-clean='set -x && docker rmi $(docker images --filter "dangling=true" -qa) && docker rm $(docker ps -qa)'
+################################ DOCKER ALIAS COMMAND END #########################
+
+################################ TMUX ALIAS COMMAND START ######################
+function dev() {
+  tmux attach -t $1 || tmux new -s $1 -c $HOME/investtools-workspace/$(echo $2 || $1)
+}
+alias vpn='tmux attach -t vpn || tmux new -s vpn'
+alias vivi="tmux attach -t vivi || tmux new -s vivi -c $HOME/investtools-workspace/vivi"
+alias informativos-admin="tmux attach -t informativos || tmux new -s informativos -c $HOME/investtools-workspace/informativos/informativos-admin/"
+alias fund_comparison="tmux attach -t fund_comparison || tmux new -s fund_comparison -c $HOME/investtools-workspace/informativos/fund_comparison/"
+alias stocks_dividends="tmux attach -t stocks_dividends || tmux new -s stocks_dividends -c $HOME/investtools-workspace/informativos/stocks_dividends/"
+alias informativos-api="tmux attach -t informativos-api || tmux new -s informativos-api -c $HOME/investtools-workspace/informativos/informativos-api"
+alias operation-items="tmux attach -t operation-items || tmux new -s operation-items -c $HOME/investtools-workspace/performit/operation-items"
+alias performitrails="tmux attach -t performitrails || tmux new -s performitrails -c $HOME/investtools-workspace/performit/performitrails"
+alias arco-api="tmux attach -t arco-api || tmux new -s arco-api -c $HOME/investtools-workspace/arco/arco-api"
+alias arco-compliance="tmux attach -t arco-compliance || tmux new -s arco-compliance -c $HOME/investtools-workspace/arco/arco-compliance"
+alias arco-contracts="tmux attach -t arco-contracts || tmux new -s arco-contracts -c $HOME/investtools-workspace/arco/arco-contracts"
+alias arco-fix="tmux attach -t arco-fix || tmux new -s arco-fix -c $HOME/investtools-workspace/arco/arco-fix"
+alias arconit-frontend="tmux attach -t arconit-frontend || tmux new -s arconit-frontend -c $HOME/investtools-workspace/arco/arconit-frontend"
+alias arconit-base="tmux attach -t arconit-base || tmux new -s arconit-base -c $HOME/investtools-workspace/arco/arconit-base"
+alias arconit-portfolio-online="tmux attach -t arconit-portfolio-online || tmux new -s arconit-portfolio-online -c $HOME/investtools-workspace/arco/arconit-portfolio-online"
+alias arconit-cruds="tmux attach -t arconit-cruds || tmux new -s arconit-cruds -c $HOME/investtools-workspace/arco/arconit-cruds"
+alias grand-bazaar="tmux attach -t grand-bazaar || tmux new -s grand-bazaar -c $HOME/investtools-workspace/grand-bazaar"
+################################ TMUX ALIAS COMMAND END #########################
+
+
+################################ RAILS ALIAS COMMAND START ######################
+alias rails='docker run -it --rm -w /app -v $PWD:/app rails rails'
+alias rubocop='docker run -t --rm -w /app --volume "$PWD:/app" rubocop rubocop'
+################################ RAILS ALIAS COMMAND END #########################
 
 
