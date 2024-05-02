@@ -3,32 +3,34 @@
   name = Fabiano Martins
   email = fabiano.paula.martins@gmail.com
 [core]
-  editor = vim
+  editor = lvim
 [push]
-  default = current
+	default = current
 [alias]
   a  = add
-  ba = branch -a
   ca = commit --amend --no-edit
+  cap = "!f() { git ca; git p -f; }; f"
   cb = checkout -b
   ci = commit -m 
   co = checkout
   cm = checkout master
+  cd = checkout develop
+  df = diff develop..HEAD -- 
   fop = fetch origin --prune
+  pomf = "!f() { git checkout master; git pull origin master --ff; git fop; gitk master; }; f"
+  podf = "!f() { git checkout develop; git pull origin develop --ff; git fop; gitk develop; }; f"
+  rom = "!f() { git fop; git rebase origin/master; }; f"
+  rod = "!f() { git fop; git rebase origin/develop; }; f"
   lg = log --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
   reflg = reflog --pretty=format:'%C(red)%h %Cgreen%cn %C(blue)%cr %C(white)%s %C(auto)%d%Creset'
-  pomf = pull origin master --ff
-  rom = rebase origin/master
   p = push
-  po = "!f() { git push -f origin HEAD:$1; }; f"
+  d = "!f() { git push -f origin HEAD:$1; }; f"
   rh = reset --hard
   rollback = reset --soft HEAD~1
   sf = show --name-only
   st = status --short --branch
-  unstage = reset --
-  undo = checkout --
+  branchdiff = merge --no-commit
 [merge]
   ff = false
 [includeIf "gitdir:~/investtools-workspace/"]
   path = .gitconfig-investtools
-
