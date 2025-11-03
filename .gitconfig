@@ -1,14 +1,19 @@
 # This is Git's per-user configuration file.
+[init]
+  defaultBranch = master
+[push]
+  default = current
+[pull]
+  rebase = true
 [user]
   name = Fabiano Martins
   email = fabiano.paula.martins@gmail.com
 [core]
-  editor = lvim
-[push]
-	default = current
+  editor = nvim
 [alias]
   a  = add
   ca = commit --amend --no-edit
+  cp = cherry-pick
   cap = "!f() { git ca; git p -f; }; f"
   cb = checkout -b
   ci = commit -m 

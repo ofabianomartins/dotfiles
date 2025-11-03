@@ -1,4 +1,8 @@
-# [[ $TERM != "screen" ]] && exec tmux
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+# [[ $TERM != "screen" ]] && exec 
+
+export GROK_API_KEY=your_api_key_here
+
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -10,7 +14,7 @@ export ZSH="/home/fabiano/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="aussiegeek"
+ZSH_THEME="clean"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +74,7 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ruby node rails git vscode sublime docker docker-compose react-native tmux)
+plugins=(ruby node rails git vscode sublime docker docker-compose react-native  zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,85 +105,75 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=/home/fabiano/.cfg/ --work-tree=/home/fabiano'
 
-alias search='grep -iRn'
+alias ivtvpn="sudo openvpn --data-ciphers AES-128-CBC --config ~/.ssh/VPN-fabiano.martins03-Investtools.ovpn --auth-user-pass ~/.ssh/vpnpass.txt"
+
+alias genialvpn="openfortivpn-webview 'brvpn.bancoplural.com:10443' --realm=terceiros | sudo openfortivpn --cookie-on-stdin --realm=terceiros"
+
+alias search='grep -iERn'
 
 alias gti='git'
 alias itg='git'
-alias tig='git'
 alias igt='git'
+alias tig='git'
 alias tgi='git'
+alias got='git'
+alias gut='git'
 
-[[ -f "$HOME/.security_commands" ]] && source ~/.security_commands
+alias tf="terraform"
+
+neofetch
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 fpath=(/completions /home/fabiano/.oh-my-zsh/plugins/git /home/fabiano/.oh-my-zsh/plugins/ruby /home/fabiano/.oh-my-zsh/functions /home/fabiano/.oh-my-zsh/completions /usr/local/share/zsh/site-functions /usr/share/zsh/vendor-functions /usr/share/zsh/vendor-completions /usr/share/zsh/functions/Calendar /usr/share/zsh/functions/Chpwd /usr/share/zsh/functions/Completion /usr/share/zsh/functions/Completion/AIX /usr/share/zsh/functions/Completion/BSD /usr/share/zsh/functions/Completion/Base /usr/share/zsh/functions/Completion/Cygwin /usr/share/zsh/functions/Completion/Darwin /usr/share/zsh/functions/Completion/Debian /usr/share/zsh/functions/Completion/Linux /usr/share/zsh/functions/Completion/Mandriva /usr/share/zsh/functions/Completion/Redhat /usr/share/zsh/functions/Completion/Solaris /usr/share/zsh/functions/Completion/Unix /usr/share/zsh/functions/Completion/X /usr/share/zsh/functions/Completion/Zsh /usr/share/zsh/functions/Completion/openSUSE /usr/share/zsh/functions/Exceptions /usr/share/zsh/functions/MIME /usr/share/zsh/functions/Math /usr/share/zsh/functions/Misc /usr/share/zsh/functions/Newuser /usr/share/zsh/functions/Prompts /usr/share/zsh/functions/TCP /usr/share/zsh/functions/VCS_Info /usr/share/zsh/functions/VCS_Info/Backends /usr/share/zsh/functions/Zftp /usr/share/zsh/functions/Zle)
 
 autoload -Uz compinit && compinit
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/home/fabiano/.sdkman"
-#[[ -s "/home/fabiano/.sdkman/bin/sdkman-init.sh" ]] && source "/home/fabiano/.sdkman/bin/sdkman-init.sh"
-
 export PATH=$PATH:/usr/java/jre1.8.0_251/bin/
-export PATH=$PATH:$HOME/.local/idea-IC-202.6397.94/bin/
+export PATH=$PATH:$HOME/.local/kafka_2.12-2.6.2/bin/
+export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/.cabal/bin/xmonad
 
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-alias vim='nvim -O'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/fabiano/google-cloud-sdk/path.zsh.inc' ]; then . '/home/fabiano/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/fabiano/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/fabiano/google-cloud-sdk/completion.zsh.inc'; fi
-
-alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
-
-#alias kubectl='microk8s kubectl'
+alias rank='sort | uniq -c | sort -nr | head'
 
 ################################ DOCKER ALIAS COMMANDS START ######################
 alias mariadb-up='docker run -it --rm -e MARIADB_ROOT_PASSWORD=root mariadb/server:10.4'
 
-alias jupyter='docker run -t --name jupyter --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "${PWD}":/home/jovyan/work jupyter/datascience-notebook:33add21fab64'
-alias jupyter_console='docker exec -it jupyter bash'
-alias backup-ivt='docker run -t --rm --network performit --env-file "$HOME/investtools-workspace/backup-investtools/.env" --volume "$HOME/investtools-workspace/backup-investtools:/app"  backup-investtools_backup ./backup-ivt.sh'
+alias update_system='sudo apt update && sudo apt upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y'
 
-alias swagger-ui='docker run --name swagger-ui -d -p 8444:8080 -e SWAGGER_JSON=/foo/swagger.json -v $PWD:/foo swaggerapi/swagger-ui' 
-alias swagger-ui-down='docker rm -f swagger-ui' 
+alias jupyter_build='docker build -t jupyter_pessoal ${HOME}/.local/jupyter/'
+alias jupyter='docker run -t --name jupyter --rm -p 8888:8888 -v "${PWD}":/home/jovyan jupyter_pessoal'
+alias jupyter_spark_build='docker build -t jupyter_spark_pessoal ${HOME}/.local/jupyter_spark/'
+alias jupyter_spark='docker run -t --name jupyter --rm -p 8888:8888 -v "${PWD}":/home/jovyan jupyter_spark_pessoal'
 
-alias docker-arco='docker-compose -f $HOME/investtools-workspace/arco/arco-docker/docker-compose.yml'
-alias docker-performit='docker-compose -f $HOME/investtools-workspace/performit/performit-docker/docker-compose.yml'
+alias docker-ivt-admin='docker compose -f $HOME/investtools-workspace/ivt-admin/ivt-admin-docker/docker-compose.yml'
 
 alias docker-clean='set -x && docker rmi $(docker images --filter "dangling=true" -qa) && docker rm $(docker ps -qa)'
 ################################ DOCKER ALIAS COMMAND END #########################
 
-################################ TMUX ALIAS COMMAND START ######################
-function dev() {
-  tmux attach -t $1 || tmux new -s $1 -c $HOME/investtools-workspace/$(echo $2 || $1)
-}
-alias vpn='tmux attach -t vpn || tmux new -s vpn'
-alias vivi="tmux attach -t vivi || tmux new -s vivi -c $HOME/investtools-workspace/vivi"
-alias informativos-admin="tmux attach -t informativos || tmux new -s informativos -c $HOME/investtools-workspace/informativos/informativos-admin/"
-alias fund_comparison="tmux attach -t fund_comparison || tmux new -s fund_comparison -c $HOME/investtools-workspace/informativos/fund_comparison/"
-alias stocks_dividends="tmux attach -t stocks_dividends || tmux new -s stocks_dividends -c $HOME/investtools-workspace/informativos/stocks_dividends/"
-alias informativos-api="tmux attach -t informativos-api || tmux new -s informativos-api -c $HOME/investtools-workspace/informativos/informativos-api"
-alias operation-items="tmux attach -t operation-items || tmux new -s operation-items -c $HOME/investtools-workspace/performit/operation-items"
-alias performitrails="tmux attach -t performitrails || tmux new -s performitrails -c $HOME/investtools-workspace/performit/performitrails"
-alias arco-api="tmux attach -t arco-api || tmux new -s arco-api -c $HOME/investtools-workspace/arco/arco-api"
-alias arco-compliance="tmux attach -t arco-compliance || tmux new -s arco-compliance -c $HOME/investtools-workspace/arco/arco-compliance"
-alias arco-contracts="tmux attach -t arco-contracts || tmux new -s arco-contracts -c $HOME/investtools-workspace/arco/arco-contracts"
-alias arco-fix="tmux attach -t arco-fix || tmux new -s arco-fix -c $HOME/investtools-workspace/arco/arco-fix"
-alias arconit-frontend="tmux attach -t arconit-frontend || tmux new -s arconit-frontend -c $HOME/investtools-workspace/arco/arconit-frontend"
-alias arconit-base="tmux attach -t arconit-base || tmux new -s arconit-base -c $HOME/investtools-workspace/arco/arconit-base"
-alias arconit-portfolio-online="tmux attach -t arconit-portfolio-online || tmux new -s arconit-portfolio-online -c $HOME/investtools-workspace/arco/arconit-portfolio-online"
-alias arconit-cruds="tmux attach -t arconit-cruds || tmux new -s arconit-cruds -c $HOME/investtools-workspace/arco/arconit-cruds"
-alias grand-bazaar="tmux attach -t grand-bazaar || tmux new -s grand-bazaar -c $HOME/investtools-workspace/grand-bazaar"
-################################ TMUX ALIAS COMMAND END #########################
+alias kafka_ui_homolog='docker run --rm -p 8089:8080 -e KAFKA_CLUSTERS_0_NAME=local -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=b-2.kakfainformativosstg.bwr7c1.c1.kafka.us-east-1.amazonaws.com:9092,b-1.kakfainformativosstg.bwr7c1.c1.kafka.us-east-1.amazonaws.com:9092 provectuslabs/kafka-ui:latest'
+alias kafka_ui_prod='docker run --rm -p 8088:8080 -e KAFKA_CLUSTERS_0_NAME=local -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=b-2.kakfainformativosstg.bwr7c1.c1.kafka.us-east-1.amazonaws.com:9092,b-1.kakfainformativosstg.bwr7c1.c1.kafka.us-east-1.amazonaws.com:9092 provectuslabs/kafka-ui:latest'
+alias kafka_auth_ui_homolog='docker run --rm -p 8089:8080 -e KAFKA_CLUSTERS_0_NAME=local -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=b-1.kafkastgauth.yetf1n.c11.kafka.us-east-1.amazonaws.com:9092,b-2.kafkastgauth.yetf1n.c11.kafka.us-east-1.amazonaws.com:9092 provectuslabs/kafka-ui:latest'
 
+################################  ALIAS COMMAND START ######################
 
-################################ RAILS ALIAS COMMAND START ######################
-alias rails='docker run -it --rm -w /app -v $PWD:/app rails rails'
-alias rubocop='docker run -t --rm -w /app --volume "$PWD:/app" rubocop rubocop'
-################################ RAILS ALIAS COMMAND END #########################
+alias posgraduacao=" attach -t posgraduacao || zellij -s posgraduacao -c $HOME/posgraduacao"
 
+#export CLASSPATH=".:/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH"
+#alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+#alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
+alias vim="nvim -O"
+alias cvim="cursor --no-sandbox"
+
+alias obsidian="~/bin/Obsidian-1.8.10.AppImage --no-sandbox"
+
+alias actual_prd_2fa="oathtool --totp -b MFPKTRG23GD7VEZDICGSD7JVEYVWJPPK3VNIMJYUOHURMV7QH7RA"
+
+ssh-agent -s > /dev/null
+ssh-add ~/.ssh/investtools_git > /dev/null &> /dev/null
+ssh-add ~/.ssh/investtools_git_rsa > /dev/null &> /dev/null
