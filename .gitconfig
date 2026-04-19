@@ -16,6 +16,7 @@
   cp = cherry-pick
   cap = "!f() { git ca; git p -f; }; f"
   cb = checkout -b
+  wb = "!f() { git worktree add -b $1 .worktrees/$1 }; f"
   ci = commit -m 
   co = checkout
   cm = checkout master
